@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Central · Portfólio Mariana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F3EE;--card:#fff;--line:#E6DFD3;--ink:#1E1D1C;--gray:#77726B;--soft:#A8A29A;--live:#2E9E5B;--warn:#C9822B;--accent:#1E1D1C;--disp:'Italiana',Georgia,serif;--sans:'Outfit',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.w{max-width:1280px;margin:0 auto;padding:28px 28px 80px}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+h1{font-family:var(--disp);font-weight:400;font-size:46px;line-height:1}
+.sub{color:var(--gray);font-size:14px;margin-top:6px}
+.status{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--live);box-shadow:0 0 0 0 rgba(46,158,91,.5);animation:pulse 1.8s infinite}
+.dot.off{background:#c44;animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,158,91,.45)}100%{box-shadow:0 0 0 10px rgba(46,158,91,0)}}
+.btn{border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer}
+.btn:hover{border-color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:22px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px}
+.kpi b{display:block;font-size:32px;font-weight:400;line-height:1.1}
+.kpi span{font-size:13px;color:var(--gray)}
+.kpi.live b{color:var(--live)}
+.grid{display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.panel h2{font-weight:500;font-size:15px;padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.panel h2 small{font-weight:300;color:var(--gray);font-size:13px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding:12px 18px;border-bottom:1px solid var(--line)}
+.filters input,.filters select{font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:7px 10px;background:#fff}
+.filters input{flex:1;min-width:160px}
+.visit{padding:16px 18px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:110px 1fr auto;gap:14px;cursor:pointer;transition:background .2s}
+.visit:hover{background:#FBF9F6}
+.visit.new{animation:flash 2.5s ease}
+@keyframes flash{0%{background:#EAF6EE}100%{background:transparent}}
+.when{font-size:13px;color:var(--gray)}
+.when b{display:block;color:var(--ink);font-weight:500;font-size:15px}
+.who{min-width:0}
+.who .loc{font-weight:500;font-size:15px}
+.who .meta{font-size:13px;color:var(--gray);margin-top:2px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:12px;border-radius:99px;padding:3px 10px;background:#F1ECE4;color:#4d4943;white-space:nowrap}
+.tag.ref{background:#1E1D1C;color:#fff}
+.tag.hot{background:#FCEFD9;color:#8A5414}
+.tag.wa{background:#E3F4E9;color:#1F6E3F}
+.right{text-align:right;font-size:13px;color:var(--gray);white-space:nowrap}
+.right b{display:block;color:var(--ink);font-size:18px;font-weight:400}
+.livebadge{display:inline-flex;align-items:center;gap:6px;color:var(--live);font-weight:500;font-size:12px}
+.livebadge i{width:7px;height:7px;border-radius:50%;background:var(--live);animation:pulse 1.8s infinite}
+.detail{grid-column:1/-1;display:none;background:#FBF9F6;border-radius:10px;padding:14px 16px;font-size:13px;color:#4d4943}
+.visit.open .detail{display:block}
+.detail .tl{margin-top:8px;display:flex;flex-direction:column;gap:4px}
+.detail .tl div::before{content:"• ";color:var(--soft)}
+.bar{height:6px;background:#EEE8DE;border-radius:9px;overflow:hidden;margin-top:6px;width:120px;margin-left:auto}
+.bar i{display:block;height:100%;background:var(--ink)}
+.side .row{display:flex;justify-content:space-between;padding:10px 18px;border-bottom:1px solid var(--line);font-size:14px}
+.side .row:last-child{border-bottom:0}
+.side .row span:last-child{color:var(--gray)}
+.empty{padding:40px 18px;text-align:center;color:var(--gray)}
+.login{max-width:380px;margin:16vh auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px;text-align:center}
+.login h1{margin-bottom:6px}
+.login input{width:100%;font:inherit;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:20px 0 12px}
+.login button{width:100%;background:var(--ink);color:#fff;border:0;border-radius:99px;padding:12px;font:inherit;cursor:pointer}
+.err{color:#b33;font-size:13px;margin-top:10px;min-height:18px}
+.toast{position:fixed;right:20px;bottom:20px;background:var(--ink);color:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 14px 40px rgba(0,0,0,.25);transform:translateY(140%);transition:transform .45s cubic-bezier(.34,1.56,.64,1);max-width:340px;font-size:14px;z-index:9}
+.toast.on{transform:none}
+.toast b{display:block;font-weight:500;margin-bottom:2px}
+@media (max-width:1000px){.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+@media (max-width:600px){.w{padding:18px 14px 60px}h1{font-size:36px}.visit{grid-template-columns:1fr;gap:6px}.right{text-align:left}.bar{margin-left:0}}
+</style>
+</head>
+<body>
+
+<div id="login" class="login" style="display:none">
+  <h1>Central</h1>
+  <p class="sub">Monitoramento do portfólio</p>
+  <form id="f"><input id="pw" type="password" placeholder="Senha da central" autocomplete="current-password"><button>Entrar</button></form>
+  <div class="err" id="err"></div>
+</div>
+
+<div id="app" class="w" style="display:none">
+  <header>
+    <div>
+      <h1>Central do portfólio</h1>
+      <div class="sub">marianaportfolioecurriculo.vercel.app · atualiza sozinha a cada 10 segundos</div>
+    </div>
+    <div class="status"><span class="dot" id="dot"></span><span id="upd">conectando…</span>
+      <button class="btn" id="notif">🔔 Ativar avisos</button><button class="btn" id="sair">Sair</button></div>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi live"><b id="k-live">0</b><span>vendo agora</span></div>
+    <div class="kpi"><b id="k-hoje">0</b><span>visitas hoje</span></div>
+    <div class="kpi"><b id="k-total">0</b><span>visitas no total</span></div>
+    <div class="kpi"><b id="k-tempo">–</b><span>tempo médio na página</span></div>
+    <div class="kpi"><b id="k-wa">0</b><span>cliques no WhatsApp</span></div>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <h2>Visitas <small id="count"></small></h2>
+      <div class="filters">
+        <input id="q" placeholder="Buscar cidade, origem, ação…">
+        <select id="fref"><option value="">Todas as origens</option></select>
+        <select id="fper"><option value="">Todo o período</option><option value="1">Hoje</option><option value="7">Últimos 7 dias</option><option value="30">Últimos 30 dias</option></select>
+      </div>
+      <div id="list"></div>
+    </div>
+    <div>
+      <div class="panel side" style="margin-bottom:18px"><h2>Por origem do link</h2><div id="s-ref"></div></div>
+      <div class="panel side" style="margin-bottom:18px"><h2>Por cidade</h2><div id="s-city"></div></div>
+      <div class="panel side"><h2>O que mais fizeram</h2><div id="s-act"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var senha=''; try{senha=localStorage.getItem('central-senha')||''}catch(e){}
+  var conhecidas={}, primeira=true, dados=[], abertos={};
+  var $=function(id){return document.getElementById(id)};
+  var paises={BR:'Brasil',US:'EUA',PT:'Portugal',AR:'Argentina',UY:'Uruguai',PY:'Paraguai',CL:'Chile',ES:'Espanha',IT:'Itália',DE:'Alemanha',FR:'França',GB:'Reino Unido',CA:'Canadá',MX:'México',IE:'Irlanda',NL:'Holanda'};
+  function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function tempo(s){if(!s)return '0 s';var m=Math.floor(s/60),r=s%60;return m?(m+' min '+(r?r+' s':'')):(r+' s')}
+  function hora(ts){var d=new Date(ts);return d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}
+  function dia(ts){var d=new Date(ts),h=new Date();var y=new Date();y.setDate(h.getDate()-1);
+    if(d.toDateString()==h.toDateString())return 'Hoje';if(d.toDateString()==y.toDateString())return 'Ontem';
+    return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'short'})}
+  function atras(ms){var s=Math.round(ms/1000);if(s<60)return 'agora';var m=Math.round(s/60);if(m<60)return 'há '+m+' min';var h=Math.round(m/60);if(h<24)return 'há '+h+' h';return 'há '+Math.round(h/24)+' d'}
+  function local(v){var p=paises[v.pais]||v.pais||'';return [v.cidade,v.estado,p].filter(Boolean).join(', ')||'Local não identificado'}
+  function aoVivo(v,agora){return !v.saiu && (agora-v.ultimo)<35000}
+
+  function login(){ $('app').style.display='none'; $('login').style.display='block'; $('pw').focus(); }
+  $('f').onsubmit=function(e){e.preventDefault(); senha=$('pw').value; try{localStorage.setItem('central-senha',senha)}catch(e){} carregar(true)};
+  $('sair').onclick=function(){try{localStorage.removeItem('central-senha')}catch(e){} senha=''; login()};
+
+  function carregar(manual){
+    if(!senha){login();return}
+    fetch('/api/visitas',{headers:{'x-senha':senha},cache:'no-store'}).then(function(r){
+      return r.json().then(function(j){return {ok:r.ok,status:r.status,j:j}})
+    }).then(function(r){
+      if(r.status==401){ $('err').textContent='Senha incorreta.'; login(); return }
+      if(!r.ok){ $('dot').classList.add('off'); $('upd').textContent=r.j.erro||'Erro ao carregar'; $('login').style.display='none'; $('app').style.display='block'; return }
+      $('login').style.display='none'; $('app').style.display='block'; $('err').textContent='';
+      $('dot').classList.remove('off'); $('upd').textContent='atualizado às '+new Date().toLocaleTimeString('pt-BR');
+      var novas=[]; r.j.visitas.forEach(function(v){ if(!conhecidas[v.id]){ if(!primeira) novas.push(v); conhecidas[v.id]=1 } });
+      dados=r.j.visitas; desenhar(r.j.agora, novas); if(!primeira) novas.forEach(avisar); primeira=false;
+    }).catch(function(){ $('dot').classList.add('off'); $('upd').textContent='sem conexão, tentando de novo…' });
+  }
+
+  function desenhar(agora, novas){
+    var hoje=new Date().toDateString();
+    var vivos=dados.filter(function(v){return aoVivo(v,agora)}).length;
+    var dHoje=dados.filter(function(v){return new Date(v.inicio).toDateString()==hoje}).length;
+    var comT=dados.filter(function(v){return v.tempo>0}); var med=comT.length?Math.round(comT.reduce(function(a,v){return a+v.tempo},0)/comT.length):0;
+    var wa=dados.filter(function(v){return /WhatsApp/.test(v.acoes||'')}).length;
+    $('k-live').textContent=vivos; $('k-hoje').textContent=dHoje; $('k-total').textContent=dados.length; $('k-tempo').textContent=med?tempo(med):'–'; $('k-wa').textContent=wa;
+    document.title=(vivos?'('+vivos+' ao vivo) ':'')+'Central · Portfólio';
+
+    var refs={}; dados.forEach(function(v){refs[v.ref||'link direto']=1});
+    var sel=$('fref'), atual=sel.value; sel.innerHTML='<option value="">Todas as origens</option>'+Object.keys(refs).sort().map(function(r){return '<option'+(r==atual?' selected':'')+'>'+esc(r)+'</option>'}).join('');
+
+    var q=$('q').value.toLowerCase(), fr=sel.value, fp=+$('fper').value;
+    var lista=dados.filter(function(v){
+      if(fr && (v.ref||'link direto')!=fr) return false;
+      if(fp && (agora-v.inicio)>fp*864e5 && !(fp==1 && new Date(v.inicio).toDateString()==hoje)) return false;
+      if(fp==1 && new Date(v.inicio).toDateString()!=hoje) return false;
+      if(q && JSON.stringify(v).toLowerCase().indexOf(q)<0) return false; return true });
+    $('count').textContent=lista.length+' de '+dados.length;
+    var novIds={}; (novas||[]).forEach(function(v){novIds[v.id]=1});
+    $('list').innerHTML=lista.length?lista.map(function(v){
+      var live=aoVivo(v,agora), acoes=(v.acoes||'').split(' | ').filter(Boolean);
+      var tags='<span class="tag ref">'+esc(v.ref||'link direto')+'</span>';
+      if(/popup/i.test(v.acoes||'')) tags+='<span class="tag hot">viu o recado Via Aroma</span>';
+      if(/WhatsApp/.test(v.acoes||'')) tags+='<span class="tag wa">clicou no WhatsApp</span>';
+      if(/Currículo/.test(v.secoes||'')) tags+='<span class="tag">chegou ao currículo</span>';
+      return '<div class="visit'+(abertos[v.id]?' open':'')+(novIds[v.id]?' new':'')+'" data-id="'+esc(v.id)+'">'+
+        '<div class="when"><b>'+hora(v.inicio)+'</b>'+dia(v.inicio)+'</div>'+
+        '<div class="who"><div class="loc">'+esc(local(v))+'</div>'+
+        '<div class="meta">'+esc(v.aparelho||'')+' · '+esc(v.navegador||'')+(v.veioDe?' · veio de '+esc(v.veioDe):'')+'</div>'+
+        '<div class="tags">'+tags+'</div></div>'+
+        '<div class="right">'+(live?'<span class="livebadge"><i></i>vendo agora</span>':atras(agora-v.ultimo))+
+        '<b>'+tempo(v.tempo||0)+'</b>rolou '+(v.scroll||0)+'%<div class="bar"><i style="width:'+(v.scroll||0)+'%"></i></div></div>'+
+        '<div class="detail"><b>Entrou:</b> '+new Date(v.inicio).toLocaleString('pt-BR')+' &nbsp; <b>Última atividade:</b> '+new Date(v.ultimo).toLocaleString('pt-BR')+
+        (v.tela?' &nbsp; <b>Tela:</b> '+esc(v.tela):'')+
+        '<br><b>Seções vistas:</b> '+esc(v.secoes||'ainda na abertura')+
+        '<div class="tl"><b>Cliques e ações:</b>'+(acoes.length?acoes.map(function(a){return '<div>'+esc(a)+'</div>'}).join(''):'<div>nenhum clique registrado</div>')+'</div></div>'+
+      '</div>' }).join(''):'<div class="empty">Nenhuma visita ainda. Assim que alguém abrir o link, ela aparece aqui.</div>';
+
+    function ranking(el,map){var arr=Object.keys(map).map(function(k){return [k,map[k]]}).sort(function(a,b){return b[1]-a[1]}).slice(0,8);
+      $(el).innerHTML=arr.length?arr.map(function(x){return '<div class="row"><span>'+esc(x[0])+'</span><span>'+x[1]+'</span></div>'}).join(''):'<div class="empty" style="padding:18px">–</div>'}
+    var r1={},r2={},r3={};
+    dados.forEach(function(v){ r1[v.ref||'link direto']=(r1[v.ref||'link direto']||0)+1; var c=v.cidade||'Não identificada'; r2[c]=(r2[c]||0)+1;
+      (v.acoes||'').split(' | ').filter(Boolean).forEach(function(a){ a=a.replace(/ \(\d+s\)$/,'').replace(/^Ampliou: .*/,'Ampliou imagem'); r3[a]=(r3[a]||0)+1 }) });
+    ranking('s-ref',r1); ranking('s-city',r2); ranking('s-act',r3);
+  }
+
+  $('list').addEventListener('click',function(e){var v=e.target.closest('.visit'); if(!v) return; var id=v.dataset.id; abertos[id]=!abertos[id]; v.classList.toggle('open')});
+  ['q','fref','fper'].forEach(function(id){$(id).addEventListener('input',function(){desenhar(Date.now())})});
+
+  // avisos de nova visita
+  var ctx; function bip(){try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();var o=ctx.createOscillator(),g=ctx.createGain();o.frequency.value=880;o.connect(g);g.connect(ctx.destination);g.gain.setValueAtTime(.001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.2,ctx.currentTime+.02);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.5);o.start();o.stop(ctx.currentTime+.5)}catch(e){}}
+  function avisar(v){
+    var t=$('toast'); t.innerHTML='<b>👀 Nova visita · '+esc(v.ref||'link direto')+'</b>'+esc(local(v))+' · '+esc(v.aparelho||''); t.classList.add('on'); setTimeout(function(){t.classList.remove('on')},7000); bip();
+    try{ if('Notification' in window && Notification.permission=='granted') new Notification('Nova visita no portfólio',{body:(v.ref||'link direto')+' · '+local(v)}) }catch(e){}
+  }
+  $('notif').onclick=function(){ bip(); if('Notification' in window) Notification.requestPermission().then(function(p){ $('notif').textContent=p=='granted'?'🔔 Avisos ativos':'🔕 Avisos bloqueados' }) };
+  if('Notification' in window && Notification.permission=='granted') $('notif').textContent='🔔 Avisos ativos';
+
+  carregar(); setInterval(carregar,10000);
+})();
+</script>
+</body>
+</html>
